@@ -1,0 +1,132 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="DataProcessing" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="i_ExtractDataTable" Type="InArgument(sd:DataTable)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>829.6,1255.2</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="64">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Core.Activities.Storage</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Data processing" sap:VirtualizedContainerService.HintSize="375.2,1190.4" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Double" Default="0" Name="minPrice" />
+      <Variable x:TypeArguments="x:Double" Default="0" Name="maxPrice" />
+      <Variable x:TypeArguments="x:Double" Default="0" Name="avgPrice" />
+      <Variable x:TypeArguments="x:Double" Name="arg" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Trace" Message="[&quot;Data is being processed.&quot;]" />
+    <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="-&gt; remove &quot;Nou&quot; from the car names&#xA;-&gt; separate the registration date and the numbor of kilometers in 2 separate columns" Code="'Adauga o coloana de pret&#xA;io_dt.Columns.Add(&quot;Pret&quot;)&#xA;&#xA;For Each dr As datarow In io_dt.Rows&#xA;&#x9;'Scoate &quot;Nou&quot; din nume&#xA;&#x9;If dr(0).ToString.ToLower.Contains(&quot;nou&quot;)&#xA;&#x9;&#x9;dr(0) = dr(0).ToString.Substring(3)&#xA;&#x9;End If&#xA;&#x9;&#x9;&#xA;&#x9;'Copiaza coloana de pret&#xA;&#x9;dr(3) = dr(2)&#xA;&#x9;&#xA;&#x9;'Extrage anul&#xA;&#x9;dr(2) = dr(1).ToString.Substring(0,dr(1).ToString.IndexOf(&quot;,&quot;))&#xA;&#x9;&#xA;&#x9;'Extrage km&#xA;&#x9;dr(1) = dr(1).ToString.Substring(dr(1).ToString.IndexOf(&quot;,&quot;) + 2)&#xA;Next" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="333.6,224.8" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+      <ui:InvokeCode.Arguments>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt">[i_ExtractDataTable]</InOutArgument>
+      </ui:InvokeCode.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeCode>
+    <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="-&gt; compute the min Price&#xA;-&gt; compute the max Price&#xA;-&gt; compute the avg Price" Code="'Obtine primul pret din i_dt&#xA;i_arg = Double.Parse(i_dt.Rows(0)(3).ToString.split(&quot; EUR&quot;.ToCharArray)(0).Trim.Replace(&quot;.&quot;,&quot;&quot;))&#xA;&#xA;'Initializeaza minimul&#xA;o_min = i_arg&#xA;&#xA;For Each dr As datarow In i_dt.Rows&#xA;&#x9;'Obtine pretul din i_dt&#xA;&#x9;i_arg = Double.Parse(dr(3).ToString.split(&quot; EUR&quot;.ToCharArray)(0).Trim.Replace(&quot;.&quot;,&quot;&quot;))&#xA;&#x9;&#xA;&#x9;'Scoate EURO din coloana euro&#xA;&#x9;If  Not String.IsNullOrWhiteSpace(dr(3).ToString)&#xA;&#x9;&#x9;'Obtine cel mai mic pret&#xA;&#x9;&#x9;If o_min &gt; i_arg&#xA;&#x9;&#x9;&#x9;o_min = i_arg&#xA;&#x9;&#x9;End If&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;'Obtine cel mai mare pret&#xA;&#x9;&#x9;If o_max &lt; i_arg&#xA;&#x9;&#x9;&#x9;o_max = i_arg&#xA;&#x9;&#x9;End If&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;'Calculeaza pretul total&#xA;&#x9;&#x9;o_avg = o_avg + i_arg&#xA;&#x9;End If&#xA;Next&#xA;&#xA;'Calculeaza pretul mediu&#xA;o_avg = o_avg / i_dt.Rows.Count" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="333.6,224.8" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+      <ui:InvokeCode.Arguments>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="i_dt">[i_ExtractDataTable]</InArgument>
+        <OutArgument x:TypeArguments="x:Double" x:Key="o_min">[minPrice]</OutArgument>
+        <OutArgument x:TypeArguments="x:Double" x:Key="o_max">[maxPrice]</OutArgument>
+        <OutArgument x:TypeArguments="x:Double" x:Key="o_avg">[avgPrice]</OutArgument>
+        <InArgument x:TypeArguments="x:Double" x:Key="i_arg">[arg]</InArgument>
+      </ui:InvokeCode.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeCode>
+    <ui:WriteRange AddHeaders="True" DataTable="[i_ExtractDataTable]" DisplayName="Write the results in Excel" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="Sheet1" StartingCell="A1" WorkbookPath="Result.xlsx" />
+    <ui:LogMessage DisplayName="Log the obtained min, max and avg Prices" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Trace" Message="[&quot;In urma analizei ofertelor de pe site-ul www.mobile.de/ro, urmatoarele date au fost obtinute:&quot; + vbCrLf + (&quot;pretul minim: &lt;minPrice&gt;pretul maxim: &lt;maxPrice&gt;pretul mediu: &lt;avgPrice&gt;&quot;).Replace(&quot;&lt;minPrice&gt;&quot;,minPrice.ToString + &quot; EURO&quot; + vbCrLf).Replace(&quot;&lt;maxPrice&gt;&quot;,maxPrice.ToString + &quot; EURO&quot; +vbCrLf).Replace(&quot;&lt;avgPrice&gt;&quot;,avgPrice.ToString + &quot; EURO&quot; +vbCrLf)]" />
+    <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;In urma analizei ofertelor de pe site-ul www.mobile.de/ro, urmatoarele date au fost obtinute:&quot; + vbCrLf + (&quot;pretul minim: &lt;minPrice&gt;pretul maxim: &lt;maxPrice&gt;pretul mediu: &lt;avgPrice&gt;&quot;).Replace(&quot;&lt;minPrice&gt;&quot;,minPrice.ToString + &quot; EURO&quot; + vbCrLf).Replace(&quot;&lt;maxPrice&gt;&quot;,maxPrice.ToString + &quot; EURO&quot; +vbCrLf).Replace(&quot;&lt;avgPrice&gt;&quot;,avgPrice.ToString + &quot; EURO&quot; +vbCrLf)]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="333.6,146.4" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" Importance="Normal" IsBodyHtml="False" IsDraft="False" Sensitivity="Normal" Subject="Exercitiu 1" To="delia.panca@fwfcompany.com">
+      <ui:SendOutlookMail.Files>
+        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+          <InArgument x:TypeArguments="x:String">Result.xlsx</InArgument>
+        </scg:List>
+      </ui:SendOutlookMail.Files>
+    </ui:SendOutlookMail>
+  </Sequence>
+</Activity>
